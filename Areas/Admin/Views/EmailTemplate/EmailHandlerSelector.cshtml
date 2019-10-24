@@ -1,0 +1,94 @@
+﻿@model EmailHandlerSelectorPageModel
+
+@{
+    Layout = null;
+
+    Func<ITemplateProperty, IHtmlContent> RenderNode = null;
+    RenderNode = this.Helper((ITemplateProperty m) =>
+    @<li>
+        <a href="javascript:$('<div />').html('@m.MacroBody').dialog({height:'auto', width:'auto'});">@m.DisplayName</a>"
+        @if (m.Children.AnyNotNull())
+        {
+        <ul>
+            @foreach (ITemplateProperty mc in m.Children)
+                {
+                    @RenderNode(mc)
+                }
+        </ul>
+        }
+    </li>
+    );
+}
+
+<script>
+    function selectHandler(e) {
+        $('[data-handlername]').hide();
+        $('[data-handlername="' + $(e).val() + '"]').show();
+    }
+</script>
+
+<select name="HandlerName" onchange="selectHandler(this);">
+    <option>Choose...</option>
+    @foreach (ITemplateDefinition thisHandler in Model.Handlers)
+    {
+    <!option value="@thisHandler.Target" @Html.Attribute("selected", thisHandler.Target == Model.Selected)>
+        @thisHandler.DisplayName (@thisHandler.Handler.Name)
+    </!option>
+    }
+</select>
+
+@foreach (ITemplateDefinition thisHandler in Model.Handlers)
+{
+    Guid treeGuid = Guid.NewGuid();
+<div class="HandlerName" data-editable="true" data-handlername="@Html.Raw(thisHandler.Target)" @Html.Attribute("style", "display:none;", thisHandler.Target != Model.Selected)>
+    <div class="value">
+        <div id="@treeGuid">
+            <ul>
+                <li>
+                    Model
+                    @foreach (ITemplateProperty m in thisHandler.Children)
+                        {
+                    <ul>
+                        @RenderNode(m)
+                    </ul>
+
+                        }
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+	$('#@treeGuid')
+		.jstree({
+			core: {
+				dblclick_toggle: false,
+				themes: {
+					name: "default",
+					dots: true,
+					icons: true,
+					variant: "large"
+				}
+			}
+            });
+
+        $('#@treeGuid').bind("select_node.jstree", function (e, data) {
+            $('#jstree').jstree('save_state');
+        });
+
+    $('#@treeGuid').on("activate_node.jstree", function (e, data) {
+        if (data.event.button !== 2) {
+            if (data.node.a_attr.href === '#') {
+                data.instance.toggle_node(data.node);
+            } else {
+                window.location.href = data.node.a_attr.href;
+            }
+        }
+	});
+
+	@*$('#@treeGuid').bind("select_node.jstree", function (e, data) {
+		return data.instance.toggle_node(data.node);
+	});*@
+</script>
+}
