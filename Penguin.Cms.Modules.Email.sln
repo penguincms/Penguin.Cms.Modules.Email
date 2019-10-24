@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Penguin.Cms.Modules.Email", "Penguin.Cms.Modules.Email.csproj", "{7691615C-9A20-4644-97F3-57FA543B3FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7691615C-9A20-4644-97F3-57FA543B3FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7691615C-9A20-4644-97F3-57FA543B3FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7691615C-9A20-4644-97F3-57FA543B3FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7691615C-9A20-4644-97F3-57FA543B3FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15489789-183B-4B0E-AD07-EF004FFED960}
+	EndGlobalSection
+EndGlobal
