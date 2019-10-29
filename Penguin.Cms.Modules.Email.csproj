@@ -10,9 +10,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="wwwroot\**\*" />
-    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.0-T9LXGUJ" />
-    <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.0-T9LXGUJ" />
-    <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.0-T9LXGUJ" />
+    <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.1-T9M1HHH" />
+    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9M1K2Y" />
+    <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.1-T9M1K2Y" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\**\*" />
