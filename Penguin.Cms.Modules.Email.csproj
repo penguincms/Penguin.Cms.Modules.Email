@@ -7,12 +7,14 @@
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Cms.Modules.Email</PackageProjectUrl>
     <Version>1.0.1</Version>
     <Description>Not Available</Description>
+    <AssemblyName>Penguin.Cms.Modules.Email</AssemblyName>
+    <RootNamespace>Penguin.Cms.Modules.Email</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="wwwroot\**\*" />
-    <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.1-T9M1HHH" />
-    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9M1K2Y" />
-    <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.1-T9M1K2Y" />
+    <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.1-T9M2XAX" />
+    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9M2XAX" />
+    <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.1-T9M2XAX" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\**\*" />
