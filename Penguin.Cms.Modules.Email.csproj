@@ -14,7 +14,7 @@
     <Content Remove="wwwroot\**\*" />
     <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.1-T9MJL4F" />
     <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.1-T9MNBFG" />
-    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9MOY1E" />
+    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9N916Q" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\**\*" />
