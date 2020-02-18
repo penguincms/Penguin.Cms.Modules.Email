@@ -9,12 +9,12 @@
         <a href="javascript:$('<div />').html('@m.MacroBody').dialog({height:'auto', width:'auto'});">@m.DisplayName</a>"
         @if (m.Children.AnyNotNull())
         {
-        <ul>
-            @foreach (ITemplateProperty mc in m.Children)
+            <ul>
+                @foreach (ITemplateProperty mc in m.Children)
                 {
                     @RenderNode(mc)
                 }
-        </ul>
+            </ul>
         }
     </li>
     );
@@ -31,35 +31,35 @@
     <option>Choose...</option>
     @foreach (ITemplateDefinition thisHandler in Model.Handlers)
     {
-    <!option value="@thisHandler.Target" @Html.Attribute("selected", thisHandler.Target == Model.Selected)>
-        @thisHandler.DisplayName (@thisHandler.Handler.Name)
-    </!option>
+        <!option value="@thisHandler.Target" @Html.Attribute("selected", thisHandler.Target == Model.Selected)>
+            @thisHandler.DisplayName (@thisHandler.Handler.Name)
+        </!option>
     }
 </select>
 
 @foreach (ITemplateDefinition thisHandler in Model.Handlers)
 {
     Guid treeGuid = Guid.NewGuid();
-<div class="HandlerName" data-editable="true" data-handlername="@Html.Raw(thisHandler.Target)" @Html.Attribute("style", "display:none;", thisHandler.Target != Model.Selected)>
-    <div class="value">
-        <div id="@treeGuid">
-            <ul>
-                <li>
-                    Model
-                    @foreach (ITemplateProperty m in thisHandler.Children)
+    <div class="HandlerName" data-editable="true" data-handlername="@Html.Raw(thisHandler.Target)" @Html.Attribute("style", "display:none;", thisHandler.Target != Model.Selected)>
+        <div class="value">
+            <div id="@treeGuid">
+                <ul>
+                    <li>
+                        Model
+                        @foreach (ITemplateProperty m in thisHandler.Children)
                         {
-                    <ul>
-                        @RenderNode(m)
-                    </ul>
+                            <ul>
+                                @RenderNode(m)
+                            </ul>
 
                         }
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
+    <script>
 	$('#@treeGuid')
 		.jstree({
 			core: {
@@ -90,5 +90,5 @@
 	@*$('#@treeGuid').bind("select_node.jstree", function (e, data) {
 		return data.instance.toggle_node(data.node);
 	});*@
-</script>
+    </script>
 }
