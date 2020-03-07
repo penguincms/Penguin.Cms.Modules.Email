@@ -14,26 +14,26 @@ namespace Penguin.Cms.Modules.Email.Services
 
         public EmailHandlerService(IServiceProvider serviceProvider)
         {
-            ServiceProvider = serviceProvider;
+            this.ServiceProvider = serviceProvider;
         }
 
         public List<ITemplateDefinition> GetHandlers()
         {
-            if (MacroHandlers is null)
+            if (this.MacroHandlers is null)
             {
-                MacroHandlers = new List<IProvideTemplates>();
+                this.MacroHandlers = new List<IProvideTemplates>();
 
                 IEnumerable<Type> MacroHandlerTypes = TypeFactory.GetAllImplementations(typeof(IProvideTemplates));
 
                 foreach (Type thisHandlerType in MacroHandlerTypes)
                 {
-                    MacroHandlers.Add((IProvideTemplates)ServiceProvider.GetService(thisHandlerType));
+                    this.MacroHandlers.Add((IProvideTemplates)this.ServiceProvider.GetService(thisHandlerType));
                 }
             }
 
             List<ITemplateDefinition> toReturn = new List<ITemplateDefinition>();
 
-            foreach (IProvideTemplates thisHandler in MacroHandlers)
+            foreach (IProvideTemplates thisHandler in this.MacroHandlers)
             {
                 toReturn.AddRange(thisHandler.GetTemplateDefinitions());
             }

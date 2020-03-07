@@ -15,10 +15,13 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
 
         public EmailMessageController(EmailTemplateRepository emailTemplateRepository, EmailHandlerService emailHandlerService, IServiceProvider serviceProvider) : base(serviceProvider)
         {
-            EmailHandlerService = emailHandlerService;
-            EmailTemplateRepository = emailTemplateRepository;
+            this.EmailHandlerService = emailHandlerService;
+            this.EmailTemplateRepository = emailTemplateRepository;
         }
 
-        public ActionResult LeftPane() => this.View();
+        public ActionResult LeftPane()
+        {
+            return this.View();
+        }
     }
 }

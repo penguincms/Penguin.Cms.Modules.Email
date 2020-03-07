@@ -17,12 +17,21 @@ namespace Penguin.Cms.Modules.Email.Macros
     {
         private static List<ITemplateDefinition>? Cache;
 
-        public void AcceptMessage(Penguin.Messaging.Application.Messages.Startup startup) => this.Refresh();
+        public void AcceptMessage(Penguin.Messaging.Application.Messages.Startup startup)
+        {
+            this.Refresh();
+        }
 
         [SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
-        public List<ITemplateDefinition> GetTemplateDefinitions() => Cache ?? throw new NullReferenceException("Cache was not initialized before access");
+        public List<ITemplateDefinition> GetTemplateDefinitions()
+        {
+            return Cache ?? throw new NullReferenceException("Cache was not initialized before access");
+        }
 
-        IEnumerable<ITemplateDefinition> IProvideTemplates.GetTemplateDefinitions() => GetTemplateDefinitions();
+        IEnumerable<ITemplateDefinition> IProvideTemplates.GetTemplateDefinitions()
+        {
+            return this.GetTemplateDefinitions();
+        }
 
         private void Refresh()
         {
