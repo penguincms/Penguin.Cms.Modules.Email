@@ -7,18 +7,30 @@ using System;
 
 namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// A controller used to display Email Messages for the CMS
+    /// </summary>
     public class EmailMessageController : ObjectManagementController<EmailMessage>
     {
+        /// <summary>
+        /// The service used to interact with email handlers and templates
+        /// </summary>
         protected EmailHandlerService EmailHandlerService { get; set; }
 
-        protected EmailTemplateRepository EmailTemplateRepository { get; set; }
-
-        public EmailMessageController(EmailTemplateRepository emailTemplateRepository, EmailHandlerService emailHandlerService, IServiceProvider serviceProvider) : base(serviceProvider)
+        /// <summary>
+        /// Constructs a new instance of this controller
+        /// </summary>
+        /// <param name="emailHandlerService">The service used to interact with email handlers and templates</param>
+        /// <param name="serviceProvider">An instance of a service provider</param>
+        public EmailMessageController(EmailHandlerService emailHandlerService, IServiceProvider serviceProvider) : base(serviceProvider)
         {
             this.EmailHandlerService = emailHandlerService;
-            this.EmailTemplateRepository = emailTemplateRepository;
         }
 
+        /// <summary>
+        /// The left pane for views managed by this controller
+        /// </summary>
+        /// <returns>The left pane for views managed by this controller</returns>
         public ActionResult LeftPane()
         {
             return this.View();
