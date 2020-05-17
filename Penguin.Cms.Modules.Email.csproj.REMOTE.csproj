@@ -14,15 +14,9 @@
   <ItemGroup>
     <Content Remove="wwwroot\**\*" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.1" />
-<<<<<<< HEAD
-    <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.1-T9W97WF" />
-    <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.1-T9W97WF" />
-    <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9W9LSL" />
-=======
     <PackageReference Include="Penguin.Cms.Email.DependencyInjection" Version="1.0.1-T9VPJBO" />
     <PackageReference Include="Penguin.Web.Email.Templating" Version="1.0.1-T9VPJBO" />
     <PackageReference Include="Penguin.Cms.Modules.Dynamic" Version="1.0.1-T9VQ7ZS" />
->>>>>>> bb97abcc33b1d3e86fab1e4308ba7d156be3de6d
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\**\*" />
@@ -30,5 +24,6 @@
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
+  <ItemGroup></ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
