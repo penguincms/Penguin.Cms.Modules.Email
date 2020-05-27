@@ -3,6 +3,7 @@ using Penguin.Cms.Email;
 using Penguin.Cms.Email.Templating.Repositories;
 using Penguin.Cms.Modules.Dynamic.Areas.Admin.Controllers;
 using Penguin.Cms.Modules.Email.Services;
+using Penguin.Security.Abstractions.Interfaces;
 using System;
 
 namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
@@ -22,7 +23,7 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
         /// </summary>
         /// <param name="emailHandlerService">The service used to interact with email handlers and templates</param>
         /// <param name="serviceProvider">An instance of a service provider</param>
-        public EmailMessageController(EmailHandlerService emailHandlerService, IServiceProvider serviceProvider) : base(serviceProvider)
+        public EmailMessageController(EmailHandlerService emailHandlerService, IServiceProvider serviceProvider, IUserSession userSession) : base(serviceProvider, userSession)
         {
             this.EmailHandlerService = emailHandlerService;
         }

@@ -14,7 +14,7 @@
             The service used to interact with email handlers and templates
             </summary>
         </member>
-        <member name="M:Penguin.Cms.Modules.Email.Areas.Admin.Controllers.EmailMessageController.#ctor(Penguin.Cms.Modules.Email.Services.EmailHandlerService,System.IServiceProvider)">
+        <member name="M:Penguin.Cms.Modules.Email.Areas.Admin.Controllers.EmailMessageController.#ctor(Penguin.Cms.Modules.Email.Services.EmailHandlerService,System.IServiceProvider,Penguin.Security.Abstractions.Interfaces.IUserSession)">
             <summary>
             Constructs a new instance of this controller
             </summary>
