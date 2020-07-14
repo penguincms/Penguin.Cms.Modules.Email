@@ -25,8 +25,8 @@ namespace Penguin.Cms.Modules.Email.ComponentProviders
                         Href = "/Admin/EmailMessage/Index",
                         Permissions = new List<ISecurityGroupPermission>()
                         {
-                            this.CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
-                            this.CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
+                            CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
+                            CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
                         },
                         Children = new List<INavigationMenu>()
                         {
@@ -38,8 +38,8 @@ namespace Penguin.Cms.Modules.Email.ComponentProviders
                                 Href = "/Admin/EmailMessage/List",
                                 Permissions = new List<ISecurityGroupPermission>()
                                 {
-                                    this.CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
-                                    this.CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
+                                    CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
+                                    CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
                                 }
                             },
                             new NavigationMenu()
@@ -50,8 +50,8 @@ namespace Penguin.Cms.Modules.Email.ComponentProviders
                                 Href = "/Admin/EmailTemplate/List",
                                 Permissions = new List<ISecurityGroupPermission>()
                                 {
-                                    this.CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
-                                    this.CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
+                                    CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
+                                    CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
                                 }
                             },
                             new NavigationMenu()
@@ -62,8 +62,8 @@ namespace Penguin.Cms.Modules.Email.ComponentProviders
                                 Href = "/Admin/EmailTemplate/Edit",
                                 Permissions = new List<ISecurityGroupPermission>()
                                 {
-                                    this.CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
-                                    this.CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
+                                    CreatePermission(RoleNames.CONTENT_MANAGER, PermissionTypes.Read),
+                                    CreatePermission(SecurityRoleNames.SYS_ADMIN, PermissionTypes.Read | PermissionTypes.Write)
                                 }
                             }
                         }
