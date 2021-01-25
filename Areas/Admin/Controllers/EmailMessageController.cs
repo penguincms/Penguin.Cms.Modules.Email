@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Penguin.Cms.Email;
-using Penguin.Cms.Email.Templating.Repositories;
 using Penguin.Cms.Modules.Dynamic.Areas.Admin.Controllers;
 using Penguin.Cms.Modules.Email.Services;
 using Penguin.Security.Abstractions.Interfaces;

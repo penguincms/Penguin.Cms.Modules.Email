@@ -6,8 +6,6 @@ using Penguin.Security.Abstractions;
 using Penguin.Security.Abstractions.Extensions;
 using Penguin.Security.Abstractions.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Penguin.Cms.Modules.Email.SecurityProviders
 {
@@ -16,30 +14,51 @@ namespace Penguin.Cms.Modules.Email.SecurityProviders
     {
         public EmailMessageSecurityProvider(IUserSession userSession, ISecurityProvider<Entity> securityProvider)
         {
-            UserSession = userSession;
-            EntitySecurityProvider = securityProvider;
+            this.UserSession = userSession;
+            this.EntitySecurityProvider = securityProvider;
         }
-        IUserSession UserSession { get; set; }
-        ISecurityProvider<Entity> EntitySecurityProvider { get; set; }
 
-        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, ISecurityGroup source = null) => EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
+        private IUserSession UserSession { get; set; }
+        private ISecurityProvider<Entity> EntitySecurityProvider { get; set; }
 
-        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, Guid source) => EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
+        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, ISecurityGroup source = null)
+        {
+            this.EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
+        }
+
+        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, Guid source)
+        {
+            this.EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
+        }
+
         public bool CheckAccess(EmailMessage entity, PermissionTypes permissionTypes = PermissionTypes.Read)
         {
-            if (UserSession.IsLoggedIn && UserSession.LoggedInUser.HasRole(RoleNames.CONTENT_MANAGER))
+            if (this.UserSession.IsLoggedIn && this.UserSession.LoggedInUser.HasRole(RoleNames.CONTENT_MANAGER))
             {
                 return true;
             }
 
-            return EntitySecurityProvider.CheckAccess(entity, permissionTypes);
+            return this.EntitySecurityProvider.CheckAccess(entity, permissionTypes);
         }
 
-        public void ClonePermissions(EmailMessage source, EmailMessage destination) => EntitySecurityProvider.ClonePermissions(source, destination);
-        public void SetDefaultPermissions(params EmailMessage[] o) => EntitySecurityProvider.SetDefaultPermissions(o);
+        public void ClonePermissions(EmailMessage source, EmailMessage destination)
+        {
+            this.EntitySecurityProvider.ClonePermissions(source, destination);
+        }
 
-        public void SetLoggedIn(EmailMessage entity) => EntitySecurityProvider.SetLoggedIn(entity);
+        public void SetDefaultPermissions(params EmailMessage[] o)
+        {
+            this.EntitySecurityProvider.SetDefaultPermissions(o);
+        }
 
-        public void SetPublic(EmailMessage entity) => EntitySecurityProvider.SetPublic(entity);
+        public void SetLoggedIn(EmailMessage entity)
+        {
+            this.EntitySecurityProvider.SetLoggedIn(entity);
+        }
+
+        public void SetPublic(EmailMessage entity)
+        {
+            this.EntitySecurityProvider.SetPublic(entity);
+        }
     }
 }

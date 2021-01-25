@@ -22,7 +22,6 @@ namespace Penguin.Cms.Modules.Email.Macros
             this.Refresh();
         }
 
-        [SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters")]
         public List<ITemplateDefinition> GetTemplateDefinitions()
         {
             return Cache ?? throw new NullReferenceException("Cache was not initialized before access");
