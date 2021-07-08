@@ -7,7 +7,6 @@ using Penguin.Templating.Abstractions;
 using Penguin.Templating.Abstractions.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
@@ -22,14 +21,14 @@ namespace Penguin.Cms.Modules.Email.Macros
             this.Refresh();
         }
 
-        public List<ITemplateDefinition> GetTemplateDefinitions()
+        public static List<ITemplateDefinition> GetTemplateDefinitions()
         {
             return Cache ?? throw new NullReferenceException("Cache was not initialized before access");
         }
 
         IEnumerable<ITemplateDefinition> IProvideTemplates.GetTemplateDefinitions()
         {
-            return this.GetTemplateDefinitions();
+            return GetTemplateDefinitions();
         }
 
         private void Refresh()
