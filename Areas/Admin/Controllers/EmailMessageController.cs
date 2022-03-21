@@ -31,9 +31,6 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
         /// The left pane for views managed by this controller
         /// </summary>
         /// <returns>The left pane for views managed by this controller</returns>
-        public ActionResult LeftPane()
-        {
-            return this.View();
-        }
+        public ActionResult LeftPane() => this.View();
     }
 }
