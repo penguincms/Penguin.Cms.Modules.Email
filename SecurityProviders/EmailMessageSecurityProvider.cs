@@ -21,15 +21,9 @@ namespace Penguin.Cms.Modules.Email.SecurityProviders
         private IUserSession UserSession { get; set; }
         private ISecurityProvider<Entity> EntitySecurityProvider { get; set; }
 
-        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, ISecurityGroup source = null)
-        {
-            this.EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
-        }
+        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, ISecurityGroup source = null) => this.EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
 
-        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, Guid source)
-        {
-            this.EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
-        }
+        public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, Guid source) => this.EntitySecurityProvider.AddPermissions(entity, permissionTypes, source);
 
         public bool CheckAccess(EmailMessage entity, PermissionTypes permissionTypes = PermissionTypes.Read)
         {
@@ -41,24 +35,12 @@ namespace Penguin.Cms.Modules.Email.SecurityProviders
             return this.EntitySecurityProvider.CheckAccess(entity, permissionTypes);
         }
 
-        public void ClonePermissions(EmailMessage source, EmailMessage destination)
-        {
-            this.EntitySecurityProvider.ClonePermissions(source, destination);
-        }
+        public void ClonePermissions(EmailMessage source, EmailMessage destination) => this.EntitySecurityProvider.ClonePermissions(source, destination);
 
-        public void SetDefaultPermissions(params EmailMessage[] o)
-        {
-            this.EntitySecurityProvider.SetDefaultPermissions(o);
-        }
+        public void SetDefaultPermissions(params EmailMessage[] o) => this.EntitySecurityProvider.SetDefaultPermissions(o);
 
-        public void SetLoggedIn(EmailMessage entity)
-        {
-            this.EntitySecurityProvider.SetLoggedIn(entity);
-        }
+        public void SetLoggedIn(EmailMessage entity) => this.EntitySecurityProvider.SetLoggedIn(entity);
 
-        public void SetPublic(EmailMessage entity)
-        {
-            this.EntitySecurityProvider.SetPublic(entity);
-        }
+        public void SetPublic(EmailMessage entity) => this.EntitySecurityProvider.SetPublic(entity);
     }
 }
