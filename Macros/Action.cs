@@ -16,11 +16,20 @@ namespace Penguin.Cms.Modules.Email.Macros
     {
         private static List<ITemplateDefinition>? Cache;
 
-        public void AcceptMessage(Penguin.Messaging.Application.Messages.Startup startup) => this.Refresh();
+        public void AcceptMessage(Penguin.Messaging.Application.Messages.Startup startup)
+        {
+            this.Refresh();
+        }
 
-        public static List<ITemplateDefinition> GetTemplateDefinitions() => Cache ?? throw new NullReferenceException("Cache was not initialized before access");
+        public static List<ITemplateDefinition> GetTemplateDefinitions()
+        {
+            return Cache ?? throw new NullReferenceException("Cache was not initialized before access");
+        }
 
-        IEnumerable<ITemplateDefinition> IProvideTemplates.GetTemplateDefinitions() => GetTemplateDefinitions();
+        IEnumerable<ITemplateDefinition> IProvideTemplates.GetTemplateDefinitions()
+        {
+            return GetTemplateDefinitions();
+        }
 
         private void Refresh()
         {

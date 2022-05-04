@@ -35,6 +35,9 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
             return this.View(new EmailHandlerSelectorPageModel(this.EmailHandlerService.GetHandlers()) { Selected = o.Value });
         }
 
-        public ActionResult LeftPane() => this.View();
+        public ActionResult LeftPane()
+        {
+            return this.View();
+        }
     }
 }
