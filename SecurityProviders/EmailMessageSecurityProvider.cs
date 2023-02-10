@@ -19,6 +19,7 @@ namespace Penguin.Cms.Modules.Email.SecurityProviders
         }
 
         private IUserSession UserSession { get; set; }
+
         private ISecurityProvider<Entity> EntitySecurityProvider { get; set; }
 
         public void AddPermissions(EmailMessage entity, PermissionTypes permissionTypes, ISecurityGroup? source = null)
