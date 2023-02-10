@@ -15,7 +15,7 @@ namespace Penguin.Cms.Modules.Email.Validators
     {
         public ValidationResults Validate()
         {
-            ValidationResults results = new ValidationResults();
+            ValidationResults results = new();
 
             IEnumerable<Type> AllTypes = TypeFactory.GetAllTypes().Where(t => !t.IsAbstract && !t.IsInterface);
 

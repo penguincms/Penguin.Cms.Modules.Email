@@ -16,9 +16,9 @@ namespace Penguin.Cms.Modules.Email.Macros
     {
         private static List<ITemplateDefinition>? Cache;
 
-        public void AcceptMessage(Penguin.Messaging.Application.Messages.Startup startup)
+        public void AcceptMessage(Penguin.Messaging.Application.Messages.Startup message)
         {
-            this.Refresh();
+            Refresh();
         }
 
         public static List<ITemplateDefinition> GetTemplateDefinitions()
@@ -33,7 +33,7 @@ namespace Penguin.Cms.Modules.Email.Macros
 
         private void Refresh()
         {
-            List<ITemplateDefinition> toReturn = new List<ITemplateDefinition>();
+            List<ITemplateDefinition> toReturn = new();
 
             List<Type> IMessageHandlers = TypeFactory.GetAllImplementations(typeof(IEmailHandler)).ToList();
 
@@ -45,7 +45,7 @@ namespace Penguin.Cms.Modules.Email.Macros
 
             foreach (MethodInfo thisMethod in MessageHandlers)
             {
-                TemplateDefinition toAdd = new TemplateDefinition(thisMethod.GetCustomAttribute<EmailHandlerAttribute>()?.HandlerName ?? $"{thisMethod.DeclaringType}.{thisMethod.Name}", this.GetType());
+                TemplateDefinition toAdd = new(thisMethod.GetCustomAttribute<EmailHandlerAttribute>()?.HandlerName ?? $"{thisMethod.DeclaringType}.{thisMethod.Name}", GetType());
 
                 foreach (ParameterInfo thisParameter in thisMethod.GetParameters())
                 {

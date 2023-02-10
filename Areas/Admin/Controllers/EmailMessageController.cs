@@ -24,7 +24,7 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
         /// <param name="serviceProvider">An instance of a service provider</param>
         public EmailMessageController(EmailHandlerService emailHandlerService, IServiceProvider serviceProvider, IUserSession userSession) : base(serviceProvider, userSession)
         {
-            this.EmailHandlerService = emailHandlerService;
+            EmailHandlerService = emailHandlerService;
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
         /// <returns>The left pane for views managed by this controller</returns>
         public ActionResult LeftPane()
         {
-            return this.View();
+            return View();
         }
     }
 }

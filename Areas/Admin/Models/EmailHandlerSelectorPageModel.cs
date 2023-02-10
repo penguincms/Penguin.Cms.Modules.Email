@@ -12,7 +12,7 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Models
 
         public EmailHandlerSelectorPageModel(IEnumerable<ITemplateDefinition> handlers)
         {
-            this.Handlers = handlers.ToList();
+            Handlers = handlers.ToList();
         }
     }
 }

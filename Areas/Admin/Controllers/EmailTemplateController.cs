@@ -20,24 +20,21 @@ namespace Penguin.Cms.Modules.Email.Areas.Admin.Controllers
 
         public EmailTemplateController(EmailTemplateRepository emailTemplateRepository, EmailHandlerService emailHandlerService, IServiceProvider serviceProvider, IUserSession userSession) : base(serviceProvider, userSession)
         {
-            this.EmailHandlerService = emailHandlerService;
-            this.EmailTemplateRepository = emailTemplateRepository;
+            EmailHandlerService = emailHandlerService;
+            EmailTemplateRepository = emailTemplateRepository;
         }
 
         [DynamicPropertyHandler(DisplayContexts.Edit, typeof(EmailTemplate), nameof(EmailTemplate.HandlerName))]
         public ActionResult EmailHandlerSelector(IMetaObject o)
         {
-            if (o is null)
-            {
-                throw new ArgumentNullException(nameof(o));
-            }
-
-            return this.View(new EmailHandlerSelectorPageModel(this.EmailHandlerService.GetHandlers()) { Selected = o.Value });
+            return o is null
+                ? throw new ArgumentNullException(nameof(o))
+                : (ActionResult)View(new EmailHandlerSelectorPageModel(EmailHandlerService.GetHandlers()) { Selected = o.Value });
         }
 
         public ActionResult LeftPane()
         {
-            return this.View();
+            return View();
         }
     }
 }
