@@ -1,4 +1,5 @@
-﻿using Penguin.Cms.Email.Abstractions.Attributes;
+﻿using Loxifi;
+using Penguin.Cms.Email.Abstractions.Attributes;
 using Penguin.Cms.Web.Macros;
 using Penguin.Email.Abstractions.Interfaces;
 using Penguin.Messaging.Abstractions.Interfaces;
@@ -30,6 +31,7 @@ namespace Penguin.Cms.Modules.Email.Macros
         {
             return GetTemplateDefinitions();
         }
+        private static TypeFactory TypeFactory { get; set; } = new TypeFactory(new TypeFactorySettings());
 
         private void Refresh()
         {

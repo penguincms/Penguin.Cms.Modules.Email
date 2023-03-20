@@ -1,4 +1,5 @@
-﻿using Penguin.DependencyInjection.Abstractions.Interfaces;
+﻿using Loxifi;
+using Penguin.DependencyInjection.Abstractions.Interfaces;
 using Penguin.Reflection;
 using Penguin.Templating.Abstractions.Interfaces;
 using System;
@@ -8,6 +9,8 @@ namespace Penguin.Cms.Modules.Email.Services
 {
     public class EmailHandlerService : ISelfRegistering
     {
+        private static TypeFactory TypeFactory { get; set; } = new TypeFactory(new TypeFactorySettings());
+
         private readonly IServiceProvider ServiceProvider;
 
         private List<IProvideTemplates>? MacroHandlers;
