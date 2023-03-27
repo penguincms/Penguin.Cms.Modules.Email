@@ -19,7 +19,7 @@ namespace Penguin.Cms.Modules.Email.Validators
         {
             ValidationResults results = new();
 
-            IEnumerable<Type> AllTypes = TypeFactory.GetAllTypes().Where(t => !t.IsAbstract && !t.IsInterface);
+            IEnumerable<Type> AllTypes = TypeFactory.Default.GetAllTypes(true).Where(t => !t.IsAbstract && !t.IsInterface);
 
             List<Type> NotIEmailHandlerClasses = AllTypes.Where(t => !t.ImplementsInterface<IEmailHandler>()).ToList();
 

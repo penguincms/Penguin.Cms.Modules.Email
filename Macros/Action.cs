@@ -31,13 +31,12 @@ namespace Penguin.Cms.Modules.Email.Macros
         {
             return GetTemplateDefinitions();
         }
-        private static TypeFactory TypeFactory { get; set; } = new TypeFactory(new TypeFactorySettings());
 
         private void Refresh()
         {
             List<ITemplateDefinition> toReturn = new();
 
-            List<Type> IMessageHandlers = TypeFactory.GetAllImplementations(typeof(IEmailHandler)).ToList();
+            List<Type> IMessageHandlers = TypeFactory.Default.GetAllImplementations(typeof(IEmailHandler)).ToList();
 
             List<MethodInfo> MessageHandlers = IMessageHandlers.SelectMany(mh =>
                 mh.GetMethods().Where(m =>

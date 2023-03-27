@@ -9,8 +9,6 @@ namespace Penguin.Cms.Modules.Email.Services
 {
     public class EmailHandlerService : ISelfRegistering
     {
-        private static TypeFactory TypeFactory { get; set; } = new TypeFactory(new TypeFactorySettings());
-
         private readonly IServiceProvider ServiceProvider;
 
         private List<IProvideTemplates>? MacroHandlers;
@@ -26,7 +24,7 @@ namespace Penguin.Cms.Modules.Email.Services
             {
                 MacroHandlers = new List<IProvideTemplates>();
 
-                IEnumerable<Type> MacroHandlerTypes = TypeFactory.GetAllImplementations(typeof(IProvideTemplates));
+                IEnumerable<Type> MacroHandlerTypes = TypeFactory.Default.GetAllImplementations(typeof(IProvideTemplates));
 
                 foreach (Type thisHandlerType in MacroHandlerTypes)
                 {
